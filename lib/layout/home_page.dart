@@ -3,7 +3,6 @@ import 'package:huoshan_app/component/home/special_theme/index.dart';
 import 'package:huoshan_app/component/home/recommend/index.dart';
 import 'package:huoshan_app/component/home/healthy_manage/index.dart';
 import 'package:huoshan_app/component/home/desease_theme/index.dart';
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();

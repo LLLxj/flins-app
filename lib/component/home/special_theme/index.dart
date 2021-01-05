@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:huoshan_app/utils/adapt_size.dart';
 
 class SpecialTheme extends StatefulWidget {
   @override
@@ -19,74 +20,86 @@ class _SpecialThemeState extends State<SpecialTheme> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: ScreenUtil().setHeight(140.0),
+      width: ScreenUtil().setWidth(750.0),
+      height: ScreenUtil().setHeight(145.0),
       decoration: BoxDecoration(
-        // border: new Border.all(width: 1.0, color: Colors.blue),
         color: const Color(0xFFF1F1F1)
       ),
-      child: Center(
-        child: Container(
-          width: ScreenUtil().setWidth(720.0),
-          height: ScreenUtil().setHeight(100.0),
-          alignment: Alignment.center,
-          child: GridView.count(
-            shrinkWrap: true,
-            physics: new NeverScrollableScrollPhysics(), //禁止内部滚动
-            crossAxisSpacing: 15.0,
-            crossAxisCount: 3,
-            children: list.map((item) => _buildTheme(item)).toList()
-          )
+      // child: Center(
+      child: Container(
+        width: ScreenUtil().setWidth(720.0),
+        margin: const EdgeInsets.only(left: 15),
+        height: ScreenUtil().setHeight(100.0),
+        child: Row(
+          children: list.map((item) => _buildTheme(item)).toList()
         )
+        // child: GridView.count(
+        //   shrinkWrap: true,
+        //   physics: new NeverScrollableScrollPhysics(), //禁止内部滚动
+        //   crossAxisSpacing: 15.0,
+        //   crossAxisCount: 3,
+        //   children: list.map((item) => _buildTheme(item)).toList()
+        // )
       )
+      // )
+    );
+  }
+
+  Widget _buildTheme(item) {
+    return Container(
+      width: ScreenUtil().setWidth(220.0),
+      height: Adapt.px(125),
+      // height: ScreenUtil().setHeight(125.0),
+      margin: const EdgeInsets.only(right: 10),
+      child: Stack(
+        children: <Widget>[
+          Container(
+            width: ScreenUtil().setWidth(220.0),
+            height: ScreenUtil().setHeight(125.0),
+            decoration: new BoxDecoration(
+              borderRadius: new BorderRadius.all(new Radius.circular(30.0)),
+            ),
+            child: Image.asset(
+              item['src'],
+              fit: BoxFit.cover,
+            ),
+          ),
+          // Container(
+          //   margin: const EdgeInsets.only(left: 10, top: 10),
+          //   child: Column(
+          //     children: [
+          Container(
+            margin: const EdgeInsets.only(left: 10, top: 12),
+            child: Text(
+              item['title'],
+              style: new TextStyle(
+                color: Colors.white,
+                fontSize: ScreenUtil().setSp(34.0),
+                letterSpacing: 1.0
+              ),
+            )
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 10, top: 45),
+            padding: const EdgeInsets.only(left: 3.0, right: 3.0),
+            decoration: new BoxDecoration(
+              color: Colors.green
+            ),
+            child: Text(
+              item['secTitle'],
+              style: new TextStyle(
+                color: Colors.white,
+                fontSize: ScreenUtil().setSp(18.0),
+              )
+            )
+          )
+        ]
+      ),
+          // )
+      //   ]
+      // ) 
     );
   }
 }
 
-Container _buildTheme(item) => Container(
-  child: ConstrainedBox(
-    constraints: BoxConstraints(
-      maxHeight: ScreenUtil().setHeight(100.0)
-    ),
-    child: Stack(
-      overflow: Overflow.clip,
-      children: <Widget>[
-        Container(
-          height: ScreenUtil().setHeight(100.0),
-          decoration: new BoxDecoration(
-            borderRadius: new BorderRadius.all(new Radius.circular(5.0)),
-          ),
-          child: Image.asset(
-            item['src'],
-            fit: BoxFit.cover,
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.only(left: 10, top: 14),
-          child: Text(
-            item['title'],
-            style: new TextStyle(
-              color: Colors.white,
-              fontSize: ScreenUtil().setSp(32.0),
-              letterSpacing: 1.0
-            ),
-          )
-        ),
-        Container(
-          margin: const EdgeInsets.only(left: 10, top: 50),
-          padding: const EdgeInsets.only(left: 3.0, right: 3.0),
-          decoration: new BoxDecoration(
-            color: Colors.green
-          ),
-          child: Text(
-            item['secTitle'],
-            style: new TextStyle(
-              color: Colors.white,
-              fontSize: ScreenUtil().setSp(16.0),
-            )
-          )
-        )
-      ]
-    )
-  )
-);
-
+// Container _buildTheme(item) => Container(

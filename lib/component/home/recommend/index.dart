@@ -27,13 +27,13 @@ class _RecommendState extends State<Recommend> {
       padding: const EdgeInsets.only(top: 10, bottom: 20),
       decoration: new BoxDecoration(
         color: Colors.white,
-        // border: new Border(
-        //   bottom: BorderSide(
-        //     color: borderColor,
-        //     width: 4.0,
-        //     style: BorderStyle.solid
-        //   ),
-        // ),
+        border: new Border(
+          bottom: BorderSide(
+            color: borderColor,
+            width: 4.0,
+            style: BorderStyle.solid
+          ),
+        ),
       ),
       child: Column(
         children: [
@@ -45,14 +45,9 @@ class _RecommendState extends State<Recommend> {
             )
           ),
           Container(
-            // width: ScreenUtil().setWidth(720.0),
-            margin: const EdgeInsets.only(top: 10.0),
-            height: Adapt.px(228),
-            // height: 114,
+            margin: const EdgeInsets.only(top: 15.0),
             // height: ScreenUtil().setHeight(228.0),
-            // child: SingleChildScrollView(
-            //   child: list.map((item) => _buildItem()).toList()
-            // )
+            height: Adapt.px(234),
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               reverse: false,
@@ -71,7 +66,7 @@ class _RecommendState extends State<Recommend> {
   Widget _buildItem(item) {
     return Container(
       width: ScreenUtil().setWidth(320.0),
-      margin: const EdgeInsets.only(top: 5.0, right: 10.0),
+      margin: const EdgeInsets.only(right: 10.0),
       decoration: new BoxDecoration(
         border: new Border.all(width: 1.0, color: itemBorderColor),
         borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
@@ -81,7 +76,7 @@ class _RecommendState extends State<Recommend> {
         children: [
           Container(
             width: ScreenUtil().setWidth(200.0),
-            margin: const EdgeInsets.only(top: 10.0, left: 9.0),
+            margin: const EdgeInsets.only(top: 10, left: 9),
             child: Text(
               item['title'],
               softWrap: true,
