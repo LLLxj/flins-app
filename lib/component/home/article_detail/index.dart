@@ -33,7 +33,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
       body: Container(
         child: WebView(
           // initialUrl: "http://mp.flins.com.cn/mbbearing/details?id=509",
-          // initialUrl: "http://www.liuzijian.cn/suibi/58.html",
+          initialUrl: "http://www.liuzijian.cn/suibi/58.html",
           // initialUrl: "https://www.scohmed.com/details?id=364",
           // initialUrl: "https://www.flins.com.cn/newsDetails2.html",
           // initialUrl: "https://www.flins.com.cn/",

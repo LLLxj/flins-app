@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:huoshan_app/router/router_effect.dart';
 import 'package:huoshan_app/component/home/article_detail/index.dart';
 import 'package:huoshan_app/layout/home_page.dart';
+import 'package:huoshan_app/component/search/index.dart';
 
 
 // import 'package:fluro/fluro.dart';
@@ -13,6 +14,7 @@ class FireRouter {
   static const String pageEmpty = 'emptyPage';
   static const String articleDetail = 'ArticleDetail';
   static const String homePage = 'HomePage';
+  static const String searchPage = 'SearchPage';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     // setting 接收两个参数 name arguments
@@ -21,13 +23,15 @@ class FireRouter {
         return Right2LeftRouter(child: new ArticleDetail(id: settings.arguments));
       case homePage:
         return Right2LeftRouter(child: HomePage());
+      case searchPage:
+        return Right2LeftRouter(child: SearchPage());
       default:
         return MaterialPageRoute(
-            builder: (_) => Scaffold(
-                  body: Center(
-                    child: Text('No route defined for ${settings.name}'),
-                  ),
-                ));
+          builder: (_) => Scaffold(
+            body: Center(
+              child: Text('No route defined for ${settings.name}'),
+            ),
+          ));
     }
     
   }

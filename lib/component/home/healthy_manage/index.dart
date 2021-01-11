@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:huoshan_app/utils/adapt_size.dart';
+// import 'package:huoshan_app/utils/adapt_size.dart';
+import 'package:huoshan_app/router/routes.dart';
+
 
 class HealthyManage extends StatefulWidget {
   @override
@@ -8,8 +10,6 @@ class HealthyManage extends StatefulWidget {
 }
 
 class _HealthyManageState extends State<HealthyManage> {
-
-  var _info = '';
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class _HealthyManageState extends State<HealthyManage> {
           ),
           GestureDetector(
             onTap: (){
-              toPageMorePrivilege();
+              toPageMorePrivilege(FireRouter.searchPage);
             },
             child: Container(
               width: ScreenUtil().setWidth(690.0),
@@ -60,7 +60,6 @@ class _HealthyManageState extends State<HealthyManage> {
                             ),
                           )
                         )
-                        
                       ]
                     )
                   )
@@ -73,11 +72,10 @@ class _HealthyManageState extends State<HealthyManage> {
     );
   }
 
-  toPageMorePrivilege () {
-    print("跳转特权页面");
-    setState(() {
-      _info = 'aaa';
-    });
-    print(_info);
+  toPageMorePrivilege (item) {
+    if (item != null && item.isNotEmpty) {
+      Navigator.of(context).pushNamed(item);
+      // if (onTap != null) onTap();
+    }
   }
 }

@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:huoshan_app/layout/home_page.dart';
 import 'package:huoshan_app/layout/person_page.dart';
+import 'package:huoshan_app/layout/goods_page.dart';
+import 'package:huoshan_app/layout/slider_home_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NavBottom extends StatefulWidget {
@@ -18,12 +20,22 @@ class _NavBottomState extends State<NavBottom> with SingleTickerProviderStateMix
     ),
     BottomNavigationBarItem(
       icon:Icon(CupertinoIcons.home),
+      title:Text('频道',style:TextStyle(fontSize: 14.0))
+    ),
+    BottomNavigationBarItem(
+      icon:Icon(CupertinoIcons.home),
+      title:Text('好物',style:TextStyle(fontSize: 14.0))
+    ),
+    BottomNavigationBarItem(
+      icon:Icon(CupertinoIcons.home),
       title:Text('我的',style:TextStyle(fontSize: 14.0))
     )
   ];
 
   final List tabBodies = [
     HomePage(),
+    SliderHomePage(),
+    GoodsPage(),
     PersonPage()
   ];
   int _currentIndex = 0;
@@ -48,6 +60,7 @@ class _NavBottomState extends State<NavBottom> with SingleTickerProviderStateMix
         index: _currentIndex,
         children: <Widget>[
           HomePage(),
+          GoodsPage(),
           PersonPage()
         ]
       ),
@@ -84,6 +97,7 @@ class _NavBottomState extends State<NavBottom> with SingleTickerProviderStateMix
     return Stack(
       children: <Widget>[
         Scaffold( // 原方案
+        
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             currentIndex: _currentIndex,
@@ -100,6 +114,8 @@ class _NavBottomState extends State<NavBottom> with SingleTickerProviderStateMix
             index: _currentIndex,
             children: <Widget>[
               HomePage(),
+              SliderHomePage(),
+              GoodsPage(),
               PersonPage()
             ]
           ),
