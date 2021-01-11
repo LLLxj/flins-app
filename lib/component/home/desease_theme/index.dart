@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:huoshan_app/api/home.dart';
+// import 'package:huoshan_app/component/home/article_detail/index.dart';
+import 'package:huoshan_app/router/routes.dart';
 // import 'package:huoshan_app/utils/loading_utils.dart';
 
 class DeseaseTheme extends StatefulWidget {
@@ -119,39 +121,51 @@ class _DeseaseThemeState extends State<DeseaseTheme> {
             borderRadius: new BorderRadius.all(new Radius.circular(8.0)),
             border: new Border.all(width: 1.0, color: borderColor),
           ),
-          child: Column(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.only(topRight: new Radius.circular(8.0), topLeft: new Radius.circular(8.0)),
-                child: Image.network(
-                  item['contentCoverUrl'],
-                  width: ScreenUtil().setWidth(347.0),
-                  height: ScreenUtil().setHeight(197.0),
-                  fit: BoxFit.fill,
+          child: GestureDetector(
+            onTap: (){
+              toDetail(item, FireRouter.articleDetail);
+            },
+            child: Column(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.only(topRight: new Radius.circular(8.0), topLeft: new Radius.circular(8.0)),
+                  child: Image.network(
+                    item['contentCoverUrl'],
+                    width: ScreenUtil().setWidth(347.0),
+                    height: ScreenUtil().setHeight(197.0),
+                    fit: BoxFit.fill,
+                  ),
                 ),
-              ),
-              Container(
-                width: ScreenUtil().setWidth(300.0),
-                margin: const EdgeInsets.only(left: 12, top: 13, bottom: 30),
-                height: ScreenUtil().setHeight(80.0),
-                alignment: Alignment.topLeft,
-                child: Text(
-                  item['name'],
-                  softWrap: true,
-                  textAlign: TextAlign.left,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                  style: new TextStyle(
-                    color: itemContentColor,
-                    fontSize: ScreenUtil().setSp(28)
+                Container(
+                  width: ScreenUtil().setWidth(300.0),
+                  margin: const EdgeInsets.only(left: 12, top: 13, bottom: 30),
+                  height: ScreenUtil().setHeight(80.0),
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    item['name'],
+                    softWrap: true,
+                    textAlign: TextAlign.left,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    style: new TextStyle(
+                      color: itemContentColor,
+                      fontSize: ScreenUtil().setSp(28)
+                    )
                   )
                 )
-              )
-            ]
+              ]
+            )
           )
         )).toList()
       )
     );
+  }
+
+  void toDetail (data, item) {
+    if (item != null && item.isNotEmpty) {
+      Navigator.of(context).pushNamed(item, arguments: data['id']);
+      // if (onTap != null) onTap();
+    }
   }
 
   void getDatas () {

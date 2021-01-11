@@ -30,7 +30,9 @@ dependencies:
   cupertino_icons: ^1.0.1
   flutter_screenutil: ^0.5.1
   webview_flutter: ^0.3.9+1
+  # webview_flutter: ^0.3.19+7
   dio: ^3.0.9
+  fluro: ^1.6.3
   # flutter_easyloading: ^2.0.0
 
 dev_dependencies:

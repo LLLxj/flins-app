@@ -81,16 +81,14 @@ class _NavBottomState extends State<NavBottom> with SingleTickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width:750, height:1334)..init(context);
-    final height = MediaQuery.of(context).size.height;
     return Stack(
       children: <Widget>[
-        Scaffold(
-          // backgroundColor: Color.fromRGBO(112, 188, 178, 1.0),
-          // backgroundColor: Colors.black, //  顶部颜色
+        Scaffold( // 原方案
           bottomNavigationBar: BottomNavigationBar(
-            type:BottomNavigationBarType.fixed,
+            type: BottomNavigationBarType.fixed,
             currentIndex: _currentIndex,
             items: bottomTabs,
+            // fixedColor: Colors.red, // 选中颜色
             onTap: (index) {
               setState(() {
                 _currentIndex = index;
@@ -107,36 +105,16 @@ class _NavBottomState extends State<NavBottom> with SingleTickerProviderStateMix
           ),
           // body: currentPage,
         )
+        // PageView(
+        //   physics: neverScroll,
+        //   controller: _controller,
+        //   children: <Widget>[
+        //     HomePage(),
+        //     PersonPage()
+        //   ],
+        // )
       ],
     );
-    // return SafeArea(
-    //   child: Stack(
-    //     children: <Widget>[
-    //       Scaffold(
-    //         backgroundColor: Color.fromRGBO(112, 188, 178, 1.0),
-    //         bottomNavigationBar: BottomNavigationBar(
-    //           type:BottomNavigationBarType.fixed,
-    //           currentIndex: _currentIndex,
-    //           items: bottomTabs,
-    //           onTap: (index) {
-    //             setState(() {
-    //               _currentIndex = index;
-    //               currentPage = tabBodies[_currentIndex];
-    //             });
-    //           },
-    //         ),
-    //         body:IndexedStack(
-    //           index: _currentIndex,
-    //           children: <Widget>[
-    //             HomePage(),
-    //             PersonPage()
-    //           ]
-    //         ),
-    //         // body: currentPage,
-    //       )
-    //     ],
-    //   )
-    // );
   }
 }
 
