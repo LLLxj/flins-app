@@ -28,15 +28,15 @@ class _SearchInputState extends State<SearchInput> {
             borderSide: BorderSide.none, // 去边线
             borderRadius: BorderRadius.all(Radius.circular(15)),
           ),
-          hintText: "搜点啥...",//提示
-          hintStyle: TextStyle(fontSize: 14)//提示样式
+          hintText: "搜点啥...", // 提示
+          hintStyle: TextStyle(fontSize: 14) // 提示样式
         ),
         onChanged: (str) => getValue(str),
         // onChanged: (str) => BlocProvider.of<SearchBloc>(context)
         //     .add(SearchWidgetEvent(args:SearchArgs(name: str,stars: [1,2,3,4,5]))),
 
-        onSubmitted: (str) {//提交后
-          FocusScope.of(context).requestFocus(FocusNode()); //收起键盘
+        onSubmitted: (str) { // 提交后
+          FocusScope.of(context).requestFocus(FocusNode()); // 收起键盘
           // _controller.clear();
         },
       )
