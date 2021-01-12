@@ -56,7 +56,7 @@ class _NavBottomState extends State<NavBottom> with SingleTickerProviderStateMix
           });
         },
       ),
-      body:IndexedStack(
+      body: IndexedStack(
         index: _currentIndex,
         children: <Widget>[
           HomePage(),
@@ -97,7 +97,6 @@ class _NavBottomState extends State<NavBottom> with SingleTickerProviderStateMix
     return Stack(
       children: <Widget>[
         Scaffold( // 原方案
-        
           bottomNavigationBar: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             currentIndex: _currentIndex,
@@ -110,7 +109,7 @@ class _NavBottomState extends State<NavBottom> with SingleTickerProviderStateMix
               });
             },
           ),
-          body:IndexedStack(
+          body: IndexedStack(
             index: _currentIndex,
             children: <Widget>[
               HomePage(),
@@ -132,5 +131,13 @@ class _NavBottomState extends State<NavBottom> with SingleTickerProviderStateMix
       ],
     );
   }
+
+  // void hideKeyboard(BuildContext context) {
+  //   FocusScopeNode currentFocus = FocusScope.of(context);
+  //   print('1111sdffdf');
+  //   if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+  //     FocusManager.instance.primaryFocus.unfocus();
+  //   }
+  // }
 }
 

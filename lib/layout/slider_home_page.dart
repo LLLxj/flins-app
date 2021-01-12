@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:huoshan_app/component/search/index.dart';
+import 'package:huoshan_app/views/search/index.dart';
 import 'package:huoshan_app/router/routes.dart';
 import 'package:huoshan_app/api/home.dart';
 

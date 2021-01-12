@@ -55,9 +55,9 @@ class _HomeContentState extends State<HomeContent> {
     // );
     return SingleChildScrollView(
       child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white
-        ),
+        // decoration: BoxDecoration(
+        //   color: Colors.white
+        // ),
         child: Column(
           children: [
             SpecialTheme(), // 三栏专题

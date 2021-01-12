@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class GoodsPage extends StatelessWidget {
   final _tabs = ['风神传', '封妖志', "幻将录", "永恒传说"];
 
