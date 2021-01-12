@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:huoshan_app/component/search/search_input.dart';
+import 'package:huoshan_app/views/search/search_input.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -13,6 +13,9 @@ class _SearchPageState extends State<SearchPage> {
       body: CustomScrollView(
         slivers: <Widget>[
           _buildSliverAppBar(),
+          SliverToBoxAdapter(
+            child: _buildSliverContent(),
+          )
         ]
       ),
     );
@@ -31,4 +34,25 @@ class _SearchPageState extends State<SearchPage> {
       ],
     );
   }
+
+  Widget _buildSliverContent () => GestureDetector(
+    onTap: () {
+       hideKeyUp();
+    },
+    child: Container(
+      decoration: new BoxDecoration(
+        border: new Border.all(width: 1.0, color: Colors.red),
+      ),
+      child: Text('1111')
+    )
+  );
+
+  void hideKeyUp () {
+    FocusScopeNode currentFocus = FocusScope.of(context);
+    print('1111sdffdf');
+    if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+      FocusManager.instance.primaryFocus.unfocus();
+    }
+  }
+  
 }
