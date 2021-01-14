@@ -7,24 +7,29 @@ import 'package:huoshan_app/views/search/index.dart';
 import 'package:huoshan_app/views/app_setting/index.dart';
 import 'package:huoshan_app/views/about_application/index.dart';
 import 'package:huoshan_app/views/easter_eggs/index.dart';
-
+import 'package:huoshan_app/views/login/index.dart';
+import 'package:huoshan_app/widget/bottom_bar.dart';
 
 // import 'package:fluro/fluro.dart';
 
 class FireRouter {
   static const String root = '/';
+  static const String navBottom = 'NavBottom';
   static const String pageArticleDetail = 'articleDetail';
-  static const String pageEmpty = 'emptyPage';
+  static const String pageEmpty = 'EmptyPage';
   static const String articleDetail = 'ArticleDetail';
   static const String homePage = 'HomePage';
   static const String searchPage = 'SearchPage';
   static const String appSetting = 'AppSetting';
   static const String aboutApplication = 'AboutApplication';
   static const String easterEggs = 'EasterEggs';
+  static const String loginPage = 'LoginPage';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     // setting 接收两个参数 name arguments
     switch (settings.name) {
+      case navBottom: // 底部导航
+        return Right2LeftRouter(child: new NavBottom());
       case articleDetail: // 文章详情
         return Right2LeftRouter(child: new ArticleDetail(id: settings.arguments));
       case homePage:
@@ -37,6 +42,8 @@ class FireRouter {
         return Right2LeftRouter(child: AboutApplication());
       case easterEggs: // 开发者彩蛋
         return Right2LeftRouter(child: EasterEggs());
+      case loginPage: // 登录页面
+        return Bottom2TopRouter(child: LoginPage());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

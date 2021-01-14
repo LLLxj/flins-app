@@ -27,7 +27,7 @@ class _AppSettingState extends State<AppSetting> {
     return Container(
       child: Column(
         children: <Widget>[
-          SizedBox(height: 10,),
+          SizedBox(height: 10),
           _buildItem(context, '深色模式', 0),
           Divider(height: 1),
           _buildItem(context, '浅色模式', 1),
@@ -41,19 +41,12 @@ class _AppSettingState extends State<AppSetting> {
   Widget _buildItem (BuildContext context, String title, int index) => Consumer<GlobalTheme>(
     builder: (context, globalTheme, child) {
       return ListTile(
-        // leading: Icon(
-        //   icon,
-        //   color: Theme.of(context).primaryColor,
-        // ),
         title: Text(title),
         trailing: index == globalTheme.themeValue ? Icon(
           Icons.chevron_right,
           color: Theme.of(context).primaryColor
         ): null,
         onTap: () {
-          // setState(() {
-          //   themeValue = index;
-          // });
           Provider.of<GlobalTheme>(context, listen: false).setTheme(index);
         },
       );
