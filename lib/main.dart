@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:huoshan_app/widget/bottom_bar.dart';
+import 'package:huoshan_app/views/splash_advertise/index.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
- import 'package:huoshan_app/router/routes.dart';
+import 'package:huoshan_app/router/routes.dart';
 import 'package:huoshan_app/provider/theme.dart';
 import 'package:provider/provider.dart';
 
@@ -83,7 +84,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
     return Container(
-      child: NavBottom()
+      // child: NavBottom()
+      child: SplashAdvertise()
     );
     // return MaterialApp(
     //   theme: ThemeData(

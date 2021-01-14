@@ -32,7 +32,7 @@ class _AppSettingState extends State<AppSetting> {
           Divider(height: 1),
           _buildItem(context, '浅色模式', 1),
           Divider(height: 1),
-          _buildItem(context, '跟随系统', 2),
+          // _buildItem(context, '跟随系统', 2)
         ],
       )
     );
