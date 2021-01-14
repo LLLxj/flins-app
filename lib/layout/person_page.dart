@@ -73,7 +73,7 @@ class _PersonPageState extends State<PersonPage> {
           _buildItem(context, TolyIcon.icon_collect, '我的收藏', FireRouter.appSetting),
           Divider(height: 1,),
           _buildItem(context, Icons.update, '版本信息', FireRouter.appSetting),
-          _buildItem(context, Icons.info, '关于应用', FireRouter.appSetting),
+          _buildItem(context, Icons.info, '关于应用', FireRouter.aboutApplication),
           // _buildItem(context, Icons.info, '关于应用', UnitRouter.about_app),
         ],
       )

@@ -5,6 +5,9 @@ import 'package:huoshan_app/component/home/article_detail/index.dart';
 import 'package:huoshan_app/layout/home_page.dart';
 import 'package:huoshan_app/views/search/index.dart';
 import 'package:huoshan_app/views/app_setting/index.dart';
+import 'package:huoshan_app/views/about_application/index.dart';
+import 'package:huoshan_app/views/easter_eggs/index.dart';
+
 
 // import 'package:fluro/fluro.dart';
 
@@ -16,18 +19,24 @@ class FireRouter {
   static const String homePage = 'HomePage';
   static const String searchPage = 'SearchPage';
   static const String appSetting = 'AppSetting';
+  static const String aboutApplication = 'AboutApplication';
+  static const String easterEggs = 'EasterEggs';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     // setting 接收两个参数 name arguments
     switch (settings.name) {
-      case articleDetail:
+      case articleDetail: // 文章详情
         return Right2LeftRouter(child: new ArticleDetail(id: settings.arguments));
       case homePage:
         return Right2LeftRouter(child: HomePage());
-      case searchPage:
+      case searchPage: // 搜索页面
         return Right2LeftRouter(child: SearchPage());
-      case appSetting:
+      case appSetting: // 应用设置
         return Right2LeftRouter(child: AppSetting());
+      case aboutApplication: // 关于我们
+        return Right2LeftRouter(child: AboutApplication());
+      case easterEggs: // 开发者彩蛋
+        return Right2LeftRouter(child: EasterEggs());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

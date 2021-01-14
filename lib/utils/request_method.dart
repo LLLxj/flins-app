@@ -16,7 +16,7 @@ Future sendRequest(String url, Method method, Map<String, dynamic> map) async {
     Response response;
     Dio _dio;
     _dio = new Dio(
-      new BaseOptions(baseUrl: Config.BASE_URL, connectTimeout: 15000, headers: optHeader)
+      new BaseOptions(baseUrl: Config.getApiurl(), connectTimeout: 15000, headers: optHeader)
     );
     var type = method;
     switch (type) {

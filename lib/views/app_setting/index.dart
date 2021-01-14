@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:huoshan_app/component/icons/index.dart';
 import 'package:huoshan_app/provider/theme.dart';
 import 'package:provider/provider.dart';
 
@@ -26,8 +25,7 @@ class _AppSettingState extends State<AppSetting> {
 
   Widget _settingList () {
     return Container(
-      child: ListView(
-        padding: EdgeInsets.zero,
+      child: Column(
         children: <Widget>[
           SizedBox(height: 10,),
           _buildItem(context, '深色模式', 0),
